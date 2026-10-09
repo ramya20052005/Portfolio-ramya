@@ -1,229 +1,494 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ramya P | AI & ML Engineer</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta name="description" content="Portfolio website for Ramya P, AI & ML Engineer and Computer Science graduate." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
+    :root {
+      --primary: #163d8d;
+      --primary-dark: #0d285d;
+      --secondary: #6ea8fe;
+      --light-bg: #f4f7fb;
+      --white: #ffffff;
+      --text: #1d2a39;
+      --muted: #5d6b7e;
+      --border: rgba(22, 61, 141, 0.12);
+      --shadow: 0 18px 45px rgba(13, 40, 93, 0.12);
+    }
+
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f5f5f5;
-      color: #1f1f1f;
-      line-height: 1.5;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #eef4ff 0%, #f9fbff 100%);
+      color: var(--text);
+      line-height: 1.7;
     }
 
-    .page {
-      max-width: 900px;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
       margin: 0 auto;
-      background: #fff;
-      min-height: 100vh;
-      padding: 40px 50px 30px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.08);
     }
 
-    header {
-      text-align: center;
-      margin-bottom: 25px;
+    .site-header {
+      background: linear-gradient(135deg, var(--primary) 0%, #2a6ee7 100%);
+      color: var(--white);
+      padding: 72px 0 32px;
+      position: relative;
+      overflow: hidden;
     }
 
-    h1 {
-      font-size: 2.1rem;
+    .site-header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(255,255,255,0.16), transparent 30%);
+    }
+
+    .header-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .brand h1 {
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 10px;
-      color: #111;
+      margin-bottom: 8px;
     }
 
-    .contact-info {
-      font-size: 0.82rem;
-      color: #2a2a2a;
+    .brand p {
+      font-size: 1.08rem;
+      opacity: 0.95;
+      letter-spacing: 0.02em;
+    }
+
+    .header-contact {
       display: flex;
-      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      font-size: 0.95rem;
+    }
+
+    .header-contact a,
+    .header-contact span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--white);
+      opacity: 0.96;
+    }
+
+    .header-contact i {
+      font-size: 0.9rem;
+    }
+
+    .main {
+      padding: 48px 0 80px;
+    }
+
+    .section-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 28px 30px;
+      margin-bottom: 26px;
+    }
+
+    .section-heading {
+      display: inline-flex;
       align-items: center;
       gap: 12px;
-      flex-wrap: wrap;
-      line-height: 1.6;
-    }
-
-    .contact-info .divider {
-      color: #666;
-    }
-
-    section {
-      margin-top: 18px;
-    }
-
-    h2 {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
+      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
-      margin-bottom: 10px;
-      color: #111;
-      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--primary-dark);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid rgba(22, 61, 141, 0.18);
+    }
+
+    .section-heading i {
+      color: var(--secondary);
+      font-size: 1rem;
     }
 
     .summary {
-      font-size: 0.96rem;
-      color: #1d1d1d;
-      text-align: justify;
-      line-height: 1.7;
+      font-size: 1.02rem;
+      color: var(--text);
     }
 
-    .education-item,
-    .project-item,
-    .cert-item {
-      margin-bottom: 10px;
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
     }
 
-    .school {
+    .edu-box {
+      background: linear-gradient(180deg, #f9fbff 0%, #edf5ff 100%);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--secondary);
+      border-radius: 14px;
+      padding: 18px 18px 16px;
+    }
+
+    .edu-box .title {
       font-weight: 700;
-      font-size: 0.97rem;
-      color: #111;
-    }
-
-    .course {
-      font-size: 0.96rem;
-      color: #111;
-    }
-
-    .details {
-      font-size: 0.95rem;
-      color: #222;
-      margin-top: 2px;
-    }
-
-    ul {
-      margin-left: 20px;
-      margin-top: 6px;
-      font-size: 0.96rem;
-      color: #222;
-      line-height: 1.7;
-    }
-
-    li {
-      margin-bottom: 4px;
-    }
-
-    .skills-list {
-      list-style: disc;
-      padding-left: 18px;
-      margin-top: 0;
-    }
-
-    .skills-list li {
+      font-size: 1.02rem;
+      color: var(--primary-dark);
       margin-bottom: 6px;
     }
 
-    .achievement {
-      margin-top: 6px;
+    .edu-box .meta {
+      color: var(--muted);
       font-size: 0.96rem;
-      color: #1d1d1d;
     }
 
-    @media (max-width: 768px) {
-      .page {
-        padding: 28px 24px 20px;
+    .skills-wrap {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .skill-box {
+      background: #f8fbff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+    }
+
+    .skill-box h3 {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .skill-box h3 i {
+      color: var(--secondary);
+    }
+
+    .skill-box p {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .projects {
+      display: grid;
+      gap: 18px;
+    }
+
+    .project-card {
+      background: linear-gradient(180deg, #fff 0%, #f7faff 100%);
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--primary);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+    }
+
+    .project-card h3 {
+      font-size: 1.06rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .project-card h3 i {
+      color: var(--secondary);
+    }
+
+    .project-card ul {
+      margin-left: 18px;
+      color: var(--text);
+    }
+
+    .project-card li + li {
+      margin-top: 5px;
+    }
+
+    .cert-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .cert-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--text);
+      font-size: 0.99rem;
+    }
+
+    .cert-item i {
+      color: #f4b740;
+      margin-top: 4px;
+      font-size: 0.95rem;
+    }
+
+    .cta {
+      background: linear-gradient(135deg, var(--primary) 0%, #2b6ee8 100%);
+      color: var(--white);
+      padding: 28px 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .cta h2 {
+      margin-bottom: 8px;
+      font-size: clamp(1.3rem, 2vw, 2rem);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .cta p {
+      margin-bottom: 18px;
+      opacity: 0.96;
+    }
+
+    .cta-actions {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--white);
+      color: var(--primary-dark);
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease;
+    }
+
+    .cta-actions:hover {
+      transform: translateY(-1px);
+    }
+
+    .site-footer {
+      padding: 24px 0 42px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 12px;
+      font-size: 1.2rem;
+    }
+
+    .socials a {
+      background: #edf4ff;
+      color: var(--primary-dark);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      transition: transform 0.2s ease;
+    }
+
+    .socials a:hover {
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 720px) {
+      .site-header {
+        padding-top: 48px;
       }
 
-      h1 {
-        font-size: 1.8rem;
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
       }
 
-      .contact-info {
-        font-size: 0.76rem;
+      .header-contact {
+        justify-content: flex-start;
+      }
+
+      .section-card {
+        padding: 22px 18px;
+      }
+
+      .project-card,
+      .edu-box,
+      .skill-box {
+        border-radius: 12px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <header>
-      <h1>Ramya P</h1>
-      <div class="contact-info">
-        <span>ramyapadmanaban20@gmail.com</span>
-        <span class="divider">|</span>
-        <span>Chennai, TN, India</span>
-        <span class="divider">|</span>
-        <span>+91 6383931280</span>
-      </div>
-    </header>
-
-    <section>
-      <h2>Professional Summary</h2>
-      <p class="summary">As a motivated and enthusiastic Computer Science graduate seeking to begin a career in a dynamic organization where I can apply my technical skills, gain practical industry experience, and contribute meaningfully to team goals. Eager to learn new technologies, adapt to challenging environments, and continuously improve while contributing to innovative projects and organizational success.</p>
-    </section>
-
-    <section>
-      <h2>Education</h2>
-
-      <div class="education-item">
-        <div class="school">Jerusalem College of Engineering | Chennai, TN</div>
-        <div class="course">B.E. Computer Science and Engineering (AI &amp; ML) | 2022 - 2026 | CGPA: 7.85</div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <h1>Ramya P</h1>
+        <p>AI &amp; ML Engineer | Computer Science Graduate</p>
       </div>
 
-      <div class="education-item">
-        <div class="school">Peniel Matriculation Higher Secondary School | Chennai, TN</div>
-        <div class="details">Higher Secondary Certificate (HSC) | 2022 | 98.2%</div>
+      <div class="header-contact">
+        <a href="mailto:ramyapadmanaban20@gmail.com"><i class="fas fa-envelope"></i> ramyapadmanaban20@gmail.com</a>
+        <span><i class="fas fa-map-marker-alt"></i> Chennai, TN, India</span>
+        <span><i class="fas fa-phone"></i> +91 6383931280</span>
       </div>
+    </div>
+  </header>
 
-      <div class="education-item">
-        <div class="school">Secondary School Leaving Certificate | Chennai, TN</div>
-        <div class="details">2020 | 94.8%</div>
+  <main class="main">
+    <div class="container">
+      <section class="section-card">
+        <div class="section-heading"><i class="fas fa-user"></i> Professional Summary</div>
+        <p class="summary">
+          Highly motivated Computer Science graduate with a strong interest in building practical solutions using emerging technologies. Brings a combination of analytical thinking, technical learning ability, and team-oriented problem-solving skills. Eager to contribute in a dynamic work environment, strengthen industry exposure, and support meaningful product development with a focus on innovation and continuous improvement.
+        </p>
+      </section>
+
+      <section class="section-card">
+        <div class="section-heading"><i class="fas fa-graduation-cap"></i> Education</div>
+        <div class="education-grid">
+          <div class="edu-box">
+            <div class="title">B.E. Computer Science and Engineering (AI &amp; ML)</div>
+            <div class="meta">Jerusalem College of Engineering | Chennai, TN</div>
+            <div class="meta">2022 – 2026 | CGPA: 7.85</div>
+          </div>
+
+          <div class="edu-box">
+            <div class="title">Higher Secondary Certificate (HSC)</div>
+            <div class="meta">Peniel Matriculation Higher Secondary School | Chennai, TN</div>
+            <div class="meta">2022 | 98.2%</div>
+          </div>
+
+          <div class="edu-box">
+            <div class="title">Secondary School Leaving Certificate</div>
+            <div class="meta">Chennai, TN</div>
+            <div class="meta">2020 | 94.8%</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card">
+        <div class="section-heading"><i class="fas fa-code"></i> Technical Skills</div>
+        <div class="skills-wrap">
+          <div class="skill-box">
+            <h3><i class="fas fa-laptop-code"></i> Programming &amp; Libraries</h3>
+            <p>Python, Java, SQL, HTML, CSS, NumPy, Pandas</p>
+          </div>
+
+          <div class="skill-box">
+            <h3><i class="fas fa-network-wired"></i> Networking</h3>
+            <p>Network Protocol Analysis, TCP/IP, ARP, Packet Sniffing with Wireshark, Network Simulation with GNS3</p>
+          </div>
+
+          <div class="skill-box">
+            <h3><i class="fas fa-tools"></i> Tools &amp; Platforms</h3>
+            <p>VS Code, Jupyter Notebook, GitHub, Windsurf, Lovable, GitHub Copilot, ChatGPT, Claude, Gemini</p>
+          </div>
+
+          <div class="skill-box">
+            <h3><i class="fas fa-brain"></i> AI &amp; ML</h3>
+            <p>Machine Learning, Data Analysis, predictive modeling, activity monitoring, and intelligent recommendation systems</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card">
+        <div class="section-heading"><i class="fas fa-diagram-project"></i> Projects</div>
+        <div class="projects">
+          <article class="project-card">
+            <h3><i class="fas fa-lightbulb"></i> Zenith: AI Digital Wellbeing &amp; Productivity Companion</h3>
+            <ul>
+              <li>Developed a full-stack digital wellbeing platform focused on improving productivity and personal performance.</li>
+              <li>Applied machine learning techniques to monitor user activity patterns and generate customized focus recommendations.</li>
+              <li>Designed a practical analytics layer to highlight usage trends and meaningful wellbeing insights.</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <h3><i class="fas fa-shopping-cart"></i> AI-Enhanced Grocery Store Management System</h3>
+            <ul>
+              <li>Built a complete desktop solution to streamline inventory handling, daily operations, and billing workflows.</li>
+              <li>Implemented a linear regression-based predictive model to estimate future stock requirements from sales patterns.</li>
+              <li>Improved operational efficiency through smarter planning and reduced manual effort.</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <h3><i class="fas fa-palette"></i> Real-Time Color Detection System</h3>
+            <ul>
+              <li>Created a Python-based computer vision project for real-time object and color recognition.</li>
+              <li>Developed RGB distance calculation logic to support fast and accurate matching in visual processing tasks.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-card">
+        <div class="section-heading"><i class="fas fa-award"></i> Research &amp; Certifications</div>
+        <div class="cert-list">
+          <div class="cert-item"><i class="fas fa-trophy"></i><span><strong>Best Paper Award</strong> — “Generative AI in Virtual Reality” | JECIETE Conference 2024</span></div>
+          <div class="cert-item"><i class="fas fa-file-alt"></i><span><strong>Publication</strong> — “The Impact of Generative AI on Virtual Worlds” | NCETECT 2024</span></div>
+          <div class="cert-item"><i class="fas fa-certificate"></i><span><strong>Certifications</strong> — Anthropic Claude 101, Claude Code 101, Introduction to Claude Codeworx; AI Tools Workshop by B1X; Artificial Intelligence digital skills certification through Accenture on Future Learn.</span></div>
+        </div>
+      </section>
+
+      <section class="cta">
+        <h2>Let’s Connect</h2>
+        <p>I am open to AI/ML opportunities, internships, and collaborative projects.</p>
+        <a class="cta-actions" href="mailto:ramyapadmanaban20@gmail.com"><i class="fas fa-envelope"></i> Send Me an Email</a>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Ramya P. All rights reserved.</p>
+      <div class="socials">
+        <a href="https://linkedin.com/in/ramya-p" target="_blank" rel="noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="mailto:ramyapadmanaban20@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
       </div>
-    </section>
-
-    <section>
-      <h2>Technical Skills</h2>
-      <ul class="skills-list">
-        <li><strong>Programming &amp; Libraries:</strong> Python, Java, SQL, HTML, CSS, NumPy, Pandas.</li>
-        <li><strong>Networking:</strong> Network Protocol Analysis (TCP/IP, ARP), Packet Sniffing (Wireshark), Network Simulation (GNS3).</li>
-        <li><strong>Tools &amp; AI Platforms:</strong> VS Code, Jupyter Notebook, GitHub, Windsurf, Lovable, GitHub Copilot, ChatGPT, Claude, Gemini.</li>
-        <li><strong>AI &amp; ML:</strong> Machine Learning, Data Analysis.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Technical &amp; Design Projects</h2>
-
-      <div class="project-item">
-        <div class="school">Zenith: AI Digital Wellbeing &amp; Productivity Companion</div>
-        <ul>
-          <li>Developed a full-stack digital wellbeing application to improve user productivity.</li>
-          <li>Integrated Machine Learning models to facilitate real-time activity monitoring and deliver personalized focus recommendations.</li>
-        </ul>
-      </div>
-
-      <div class="project-item">
-        <div class="school">AI-Enhanced Grocery Store Management System</div>
-        <ul>
-          <li>Engineered a comprehensive desktop application to automate daily grocery store operations, including inventory tracking and billing.</li>
-          <li>Implemented a Linear Regression machine learning model to accurately predict future stock requirements based on sales data.</li>
-        </ul>
-      </div>
-
-      <div class="project-item">
-        <div class="school">Real-Time Color Detection System</div>
-        <ul>
-          <li>Built a computer vision application utilizing Python.</li>
-          <li>Programmed RGB distance calculation algorithms to execute highly precise, real-time color matching functionality.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section>
-      <h2>Research &amp; Certifications</h2>
-
-      <div class="achievement">• <strong>Best Paper Award</strong>: "Generative AI in Virtual Reality" | JECIETE Conference 2024</div>
-      <div class="achievement">• <strong>Publication</strong>: "The Impact of Generative AI on Virtual Worlds" | NCETECT 2024</div>
-      <div class="achievement">• <strong>Certification</strong>: Anthropic Claude 101, Claude Code 101, Introduction to Claude Codeworx | Digital Skills: Artificial Intelligence — Accenture through Future Learn, AI Tools Workshop by B1X.</div>
-    </section>
-  </div>
+    </div>
+  </footer>
 </body>
 </html>
