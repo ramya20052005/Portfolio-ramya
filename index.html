@@ -3,76 +3,385 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ramya P | AI & ML Portfolio</title>
+  <title>Ramya P | AI & ML Engineer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 850px;
-      margin: 40px auto;
-      padding: 20px;
-      background: #f5f7fb;
-      color: #243047;
-      line-height: 1.7;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    h1, h2 { color: #3156a3; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f5f7fb 0%, #e9ecef 100%);
+      color: #2c3e50;
+      line-height: 1.8;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    header .subtitle {
+      font-size: 1.3em;
+      font-weight: 300;
+      opacity: 0.95;
+      margin-bottom: 20px;
+    }
+
+    header .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      font-size: 0.95em;
+    }
+
+    header .contact-info a {
+      color: white;
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+
+    header .contact-info a:hover {
+      opacity: 0.8;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
     section {
       background: white;
-      padding: 20px;
-      margin: 18px 0;
-      border-radius: 12px;
+      padding: 40px;
+      margin: 25px 0;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-    a { color: #3156a3; }
+
+    section:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    }
+
+    h2 {
+      color: #1e3a8a;
+      font-size: 1.8em;
+      margin-bottom: 25px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid #3b82f6;
+      display: inline-block;
+    }
+
+    h3 {
+      color: #1e3a8a;
+      font-size: 1.2em;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    h4 {
+      color: #3b82f6;
+      font-size: 1em;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .project-item {
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+      border-left: 4px solid #3b82f6;
+      padding-left: 20px;
+    }
+
+    .project-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .education-item {
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+    }
+
+    .education-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .degree {
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-bottom: 5px;
+    }
+
+    .college {
+      color: #555;
+      font-weight: 500;
+    }
+
+    .details {
+      color: #777;
+      font-size: 0.95em;
+      margin-top: 5px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .skill-category {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid #3b82f6;
+    }
+
+    .skill-category h4 {
+      color: #1e3a8a;
+      margin-bottom: 12px;
+      font-size: 1.05em;
+    }
+
+    .skill-category p {
+      color: #555;
+      line-height: 1.8;
+      font-size: 0.95em;
+    }
+
+    .achievement {
+      background: #eef2ff;
+      padding: 15px;
+      margin: 12px 0;
+      border-radius: 6px;
+      border-left: 4px solid #fbbf24;
+      color: #1e3a8a;
+    }
+
+    .achievement i {
+      color: #fbbf24;
+      margin-right: 10px;
+    }
+
+    a {
+      color: #3b82f6;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: #1e3a8a;
+      text-decoration: underline;
+    }
+
+    footer {
+      background: #1e3a8a;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 50px;
+      font-size: 0.9em;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 15px;
+    }
+
+    .social-links a {
+      color: white;
+      font-size: 1.3em;
+      transition: transform 0.3s;
+    }
+
+    .social-links a:hover {
+      transform: scale(1.2);
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2em;
+      }
+
+      header .subtitle {
+        font-size: 1.1em;
+      }
+
+      header .contact-info {
+        gap: 15px;
+        font-size: 0.85em;
+      }
+
+      section {
+        padding: 25px;
+        margin: 18px 0;
+      }
+
+      h2 {
+        font-size: 1.5em;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Hi, I'm Ramya P</h1>
-  <p>Computer Science Graduate | AI & ML | Python Developer</p>
+  <header>
+    <h1>Ramya P</h1>
+    <p class="subtitle">AI & ML Engineer | Computer Science Graduate</p>
+    <div class="contact-info">
+      <a href="mailto:ramyapadmanaban20@gmail.com"><i class="fas fa-envelope"></i> ramyapadmanaban20@gmail.com</a>
+      <span>📍 Chennai, TN, India</span>
+      <span>📱 +91 6383931280</span>
+      <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://linkedin.com/in/ramya-p" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    </div>
+  </header>
 
-  <section>
-    <h2>About Me</h2>
-    <p>I'm a Computer Science and Engineering graduate
-    specializing in AI and Machine Learning. I enjoy
-    building applications and solving real-world problems
-    using technology.</p>
-  </section>
+  <div class="container">
+    <section>
+      <h2>Professional Summary</h2>
+      <p>Motivated and enthusiastic Computer Science graduate seeking to begin a career in a dynamic organization where I can apply technical skills, gain practical industry experience, and contribute meaningfully to team goals. Eager to learn new technologies, tackle challenging environments, and continuously improve while contributing to innovative projects and organizational success.</p>
+    </section>
 
-  <section>
-    <h2>Technical Skills</h2>
-    <p>Python, Java, SQL, HTML, CSS, Machine Learning,
-    TCP/IP, Wireshark, GNS3, GitHub.</p>
-  </section>
+    <section>
+      <h2>Education</h2>
+      
+      <div class="education-item">
+        <div class="degree">B.E. Computer Science and Engineering (AI & ML)</div>
+        <div class="college">Jerusalem College of Engineering | Chennai, TN</div>
+        <div class="details">2022 – 2026 | CGPA: 7.85</div>
+      </div>
 
-  <section>
-    <h2>My Projects</h2>
-    <h3>ZENITH</h3>
-    <p>An AI-powered digital wellbeing and productivity
-    companion with personalized focus recommendations.</p>
+      <div class="education-item">
+        <div class="degree">Paniel Matriculation Higher Secondary School</div>
+        <div class="college">Chennai, TN</div>
+        <div class="details">Higher Secondary Certificate (HSC) 2022 | Percentage: 98.2%</div>
+      </div>
 
-    <h3>AI Grocery Store Management</h3>
-    <p>A grocery inventory and billing application with
-    machine learning-based stock prediction.</p>
+      <div class="education-item">
+        <div class="degree">Secondary School Leaving Certificate</div>
+        <div class="college">Chennai, TN</div>
+        <div class="details">2020 | Percentage: 94.8%</div>
+      </div>
+    </section>
 
-    <h3>Real-Time Color Detection</h3>
-    <p>A Python computer vision project using RGB distance
-    calculations for real-time color matching.</p>
-  </section>
+    <section>
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h4><i class="fas fa-code"></i> Programming & Libraries</h4>
+          <p>Python, Java, SQL, HTML, CSS, Numpy, Pandas</p>
+        </div>
+        <div class="skill-category">
+          <h4><i class="fas fa-network-wired"></i> Networking</h4>
+          <p>Network Protocol Analysis (TCP/IP), Wireshark, Network Simulation (GNS3)</p>
+        </div>
+        <div class="skill-category">
+          <h4><i class="fas fa-cogs"></i> Tools & Platforms</h4>
+          <p>VS Code, Jupyter Notebook, GitHub, Windsurf, Lovable, GitHub Copilot, ChatGPT, Claude, Gemini</p>
+        </div>
+        <div class="skill-category">
+          <h4><i class="fas fa-brain"></i> AI & ML</h4>
+          <p>Machine Learning, Data Analysis, Deep Learning Concepts</p>
+        </div>
+      </div>
+    </section>
 
-  <section>
-    <h2>Education</h2>
-    <p>B.E. Computer Science and Engineering (AI & ML)<br>
-    Jerusalem College of Engineering | 2022–2026</p>
-  </section>
+    <section>
+      <h2>Technical & Design Projects</h2>
 
-  <section>
-    <h2>Achievements</h2>
-    <p>Best Paper Award — Generative AI in Virtual Reality,
-    JECIETE (2024).</p>
-  </section>
+      <div class="project-item">
+        <h3><i class="fas fa-lightbulb"></i> ZENITH: AI Digital Wellbeing & Productivity Companion</h3>
+        <ul style="margin-left: 20px; color: #555;">
+          <li>Developed a full-stack digital wellbeing application to improve user productivity</li>
+          <li>Integrated Machine Learning models to enable personalized focus recommendations</li>
+          <li>Implemented analytics to monitor activity and deliver meaningful wellbeing insights</li>
+        </ul>
+      </div>
 
-  <section>
-    <h2>Contact</h2>
-    <p>Email: ramyapadmanaban20@gmail.com</p>
-    <p><a href="https://github.com/">My GitHub</a></p>
-  </section>
+      <div class="project-item">
+        <h3><i class="fas fa-shopping-cart"></i> AI Grocery Store Management System</h3>
+        <ul style="margin-left: 20px; color: #555;">
+          <li>Engineered a comprehensive desktop application to automate daily grocery store operations including inventory tracking and billing</li>
+          <li>Implemented a Linear Regression machine learning model to accurately predict future stock requirements based on sales data</li>
+          <li>Optimized inventory management processes leading to improved operational efficiency</li>
+        </ul>
+      </div>
+
+      <div class="project-item">
+        <h3><i class="fas fa-palette"></i> Real-Time Color Detection System</h3>
+        <ul style="margin-left: 20px; color: #555;">
+          <li>Built a Python computer vision application utilizing OpenCV</li>
+          <li>Programmed RGB distance calculation algorithms to perform real-time color matching with precision</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Achievements & Certifications</h2>
+      
+      <div class="achievement">
+        <i class="fas fa-trophy"></i>
+        <strong>Best Paper Award</strong> — "Generative AI in Virtual Reality" | JECIETE Conference 2024
+      </div>
+
+      <div class="achievement">
+        <i class="fas fa-award"></i>
+        <strong>Publication</strong> — Paper on "Generative AI in Virtual Reality" | JECIETE 2024
+      </div>
+
+      <div class="achievement">
+        <i class="fas fa-certificate"></i>
+        <strong>Certifications:</strong> Anthropic Claude 101, Claude Code 101, Introduction to Claude Codeworx | Practical Skills: Artificial Intelligence — Accenture through Future Learn, AI Tools Workshop by EsTo+
+      </div>
+    </section>
+
+    <section style="text-align: center; background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); color: white;">
+      <h2 style="color: white; border-bottom: 3px solid rgba(255,255,255,0.3);">Let's Connect!</h2>
+      <p style="color: rgba(255,255,255,0.95); margin-top: 15px; margin-bottom: 20px;">I'm always interested in AI/ML projects, internships, and collaborations. Feel free to reach out!</p>
+      <a href="mailto:ramyapadmanaban20@gmail.com" style="background: white; color: #1e3a8a; padding: 12px 30px; border-radius: 6px; font-weight: 600; display: inline-block; margin: 10px; transition: transform 0.3s;">
+        <i class="fas fa-envelope"></i> Send Me an Email
+      </a>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Ramya P. All rights reserved.</p>
+    <div class="social-links">
+      <a href="https://github.com/" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/ramya-p" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:ramyapadmanaban20@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+  </footer>
 </body>
 </html>
